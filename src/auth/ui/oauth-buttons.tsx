@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { OAuthProviders } from "@/auth/provider"; 
+import { OAuthProviders } from "@/auth/provider";
 
 interface OauthProvider {
   provider: string;
@@ -13,11 +13,17 @@ interface OauthButtonsProps {
   formBelow?: boolean;
 }
 
-export default function OauthButtons({ handleClick, nextUrl, formBelow }: OauthButtonsProps) {
+export default function OauthButtons({
+  handleClick,
+  nextUrl,
+  formBelow,
+}: OauthButtonsProps) {
   if (!OAuthProviders || OAuthProviders.length === 0) return null;
 
   const handleOauthLogin = async (provider: string) => {
-    console.log(`OAuth login for provider: ${provider} with next url: ${nextUrl}`);
+    console.log(
+      `OAuth login for provider: ${provider} with next url: ${nextUrl}`
+    );
     // Placeholder for OAuth login logic:
     /*
     const auth_error = await LoginWithOAuthProvider(provider, nextUrl);
@@ -27,17 +33,26 @@ export default function OauthButtons({ handleClick, nextUrl, formBelow }: OauthB
     */
   };
 
-  const gridClasses = OAuthProviders.length === 4 ? "grid grid-cols-2 gap-4" : "space-y-2";
+  const gridClasses =
+    OAuthProviders.length === 4 ? "grid grid-cols-2 gap-4" : "space-y-2";
 
   return (
-    <div className={`flex ${formBelow ? "flex-col-reverse" : "flex-col"} gap-4`}>
+    <div
+      className={`flex ${formBelow ? "flex-col-reverse" : "flex-col"} gap-4`}
+    >
       <span className="flex items-center">
         <span className="h-px flex-1 bg-border"></span>
-        <span className="shrink-0 text-muted-foreground text-xs px-6">Or, Continue with</span>
+        <span className="shrink-0 text-muted-foreground text-xs px-6">
+          Or, Continue with
+        </span>
         <span className="h-px flex-1 bg-border"></span>
       </span>
 
-      <div className={`${OAuthProviders.length > 3 ? gridClasses : "flex items-center gap-4"}`}>
+      <div
+        className={`${
+          OAuthProviders.length > 3 ? gridClasses : "flex items-center gap-4"
+        }`}
+      >
         {OAuthProviders.map(({ provider, icon: Icon }: OauthProvider) => (
           <Button
             onClick={() => {

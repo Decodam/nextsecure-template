@@ -14,7 +14,11 @@ import { brand } from "./brands"
 
 
 export default function RecoveryForm({borderless=false, className}:{borderless?:boolean|null, className?:string}) {
-  // 1. Define your form.
+
+  /*
+    Recovery will send a magic link to the verified email only if the user exists. Users can change passwords later on
+  */
+
   const form = useForm<z.infer<typeof recoveryFormSchema>>({
     resolver: zodResolver(recoveryFormSchema),
     defaultValues: {
@@ -22,7 +26,7 @@ export default function RecoveryForm({borderless=false, className}:{borderless?:
     },
   })
   
-  // 2. Define a submit handler.
+  
   function onSubmit(values: z.infer<typeof recoveryFormSchema>) {
     console.log(values)
   }

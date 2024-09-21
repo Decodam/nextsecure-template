@@ -18,6 +18,11 @@ import OauthButtons from "./oauth-buttons"
 
 export default function SignupForm({borderless=false, className}:{borderless?:boolean|null, className?:string}) {
 
+  /*
+    Signup form sends a verification magic link to the user. This will generate a verification token in the database along with a preregistration.
+    Preregistration email verification: if preregistration exists with given email we check the expiry date. if its past the expiry, we update the prereg else we say that an email has already been sent
+  */
+
   const form = useForm<z.infer<typeof signupFormSchema>>({
     resolver: zodResolver(signupFormSchema),
     defaultValues: {

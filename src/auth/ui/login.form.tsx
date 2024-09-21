@@ -17,7 +17,12 @@ import OauthButtons from "./oauth-buttons"
 
 
 export default function LoginForm({borderless=false, className}:{borderless?:boolean|null, className?:string}) {
-  // 1. Define your form.
+
+  /*
+    Login method checks the users hash password and email for credentials login.
+  */
+
+
   const form = useForm<z.infer<typeof loginFormSchema>>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
@@ -26,7 +31,7 @@ export default function LoginForm({borderless=false, className}:{borderless?:boo
     },
   })
   
-  // 2. Define a submit handler.
+  
   function onSubmit(values: z.infer<typeof loginFormSchema>) {
     console.log(values)
   }

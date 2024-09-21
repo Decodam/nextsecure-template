@@ -1,3 +1,10 @@
+/*
+Change the brand name and logo according to your app's branding.
+
+You can also add more icons by just copying svg code. I use icons8 for my svg logos.
+*/
+
+
 export const brand = {
   name: "NextSecure",
   logo: "/logo.webp"

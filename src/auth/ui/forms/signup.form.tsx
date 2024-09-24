@@ -10,9 +10,9 @@ import { Input } from "@/components/ui/input"
 import { checkPasswordStrength, signupFormSchema } from "@/auth/validator"
 import Link from "next/link"
 import Image from "next/image"
-import { PasswordInput } from "./password-input"
-import { brand } from "./brands"
-import OauthButtons from "./oauth-buttons"
+import { PasswordInput } from "../password-input"
+import { brand } from "../brands"
+import OauthButtons from "../oauth-buttons"
 
 
 

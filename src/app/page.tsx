@@ -4,6 +4,7 @@ import Link from "next/link";
 
 export default function Home({}) {
   
+  
   return (
     <div className="container min-h-screen flex flex-col gap-8 justify-center items-center">
       <Link href={"/"} className="text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">

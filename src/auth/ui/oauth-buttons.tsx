@@ -1,10 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { OAuthProviders } from "@/auth/provider";
+import { signIn } from "next-auth/react";
 
 interface OauthProvider {
   provider: string;
-  icon: React.ElementType; // Type for the icon component
+  icon: React.ElementType;
 }
 
 interface OauthButtonsProps {
@@ -21,16 +22,7 @@ export default function OauthButtons({
   if (!OAuthProviders || OAuthProviders.length === 0) return null;
 
   const handleOauthLogin = async (provider: string) => {
-    console.log(
-      `OAuth login for provider: ${provider} with next url: ${nextUrl}`
-    );
-    // Placeholder for OAuth login logic:
-    /*
-    const auth_error = await LoginWithOAuthProvider(provider, nextUrl);
-    if (auth_error && !auth_error.success) {
-      console.error(auth_error.message);
-    }
-    */
+    await signIn(provider, {redirectTo: nextUrl || '/'})
   };
 
   const gridClasses =

@@ -14,7 +14,7 @@ export async function SignedIn({ children }: { children: React.ReactNode }) {
   // If the user is not signed in, return null or handle appropriately
   if (!session?.user) return null;
 
-  return <div>{children}</div>;
+  return <>{children}</>;
 }
 
 

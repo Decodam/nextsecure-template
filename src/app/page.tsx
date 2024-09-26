@@ -2,28 +2,20 @@
 
 
 
-import getServerSession, { SignedIn, SignedOut } from "@/auth/session";
+import { SignedIn, SignedOut } from "@/auth/session";
+import UserButton from "@/components/auth/user-button";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Database, File, Globe, LogOut, Shield, UserIcon } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home({}) {
-  const session = await getServerSession()
 
   
   return (
     <div className="container min-h-screen flex flex-col gap-8 justify-center items-center">
 
+      <UserButton />
 
-      <SignedIn>
-        <div className="flex items-center gap-2">
-          <img src={session?.user?.image || ""} alt="" className="size-10 rounded-full" />
-          <div>
-            <p className="font-medium">{session?.user?.name}</p>
-            <p className="text-xs text-muted-foreground">{session?.user?.email}</p>
-          </div>
-        </div>
-      </SignedIn>
 
 
       <Link href={"/"} className="text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">

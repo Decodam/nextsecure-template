@@ -1,4 +1,4 @@
-import { SvgBrandGithub } from "@/auth/ui/brands";
+import { SvgBrandGithub } from "@/components/auth/brands";
 import GitHubProvider from "next-auth/providers/github";
 
 /*

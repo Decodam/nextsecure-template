@@ -1,6 +1,9 @@
+import { redirectOnAuth } from "@/auth/session";
 
 
-export default function Layout({children}:{children:React.ReactNode}) {
+export default async function Layout({children}:{children:React.ReactNode}) {
+  await redirectOnAuth();
+
   return (
     <div>
       {children}

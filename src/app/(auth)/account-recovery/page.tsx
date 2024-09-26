@@ -1,4 +1,4 @@
-import RecoveryForm from "@/auth/ui/forms/recovery.form";
+import RecoveryForm from "@/components/auth/forms/recovery.form";
 
 
 export default function LoginPage({}) {

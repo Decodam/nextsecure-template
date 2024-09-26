@@ -4,8 +4,13 @@ import {
   text,
   primaryKey,
   integer,
+  boolean,
+  pgEnum,
 } from "drizzle-orm/pg-core"
 import type { AdapterAccountType } from "next-auth/adapters"
+
+
+export const RoleEnum = pgEnum("role", ["user", "admin", "superuser"]);
 
  
 export const users = pgTable("user", {
@@ -14,6 +19,8 @@ export const users = pgTable("user", {
     .$defaultFn(() => crypto.randomUUID()),
   name: text("name"),
   email: text("email").unique(),
+  role: RoleEnum("role").default("user").notNull(),
+  activatedAccount: boolean("activated_account").default(false).notNull(),
   emailVerified: timestamp("emailVerified", { mode: "date" }),
   image: text("image"),
 })

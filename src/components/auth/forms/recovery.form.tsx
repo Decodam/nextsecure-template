@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { recoveryFormSchema } from "@/auth/validator"
 import Link from "next/link"
 import Image from "next/image"
-import { brand } from "../brands"
+import { brand } from "@/components/auth/brands"
 
 
 export default function RecoveryForm({borderless=false, className}:{borderless?:boolean|null, className?:string}) {

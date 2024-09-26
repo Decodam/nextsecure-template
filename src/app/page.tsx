@@ -1,12 +1,31 @@
+/* eslint-disable @next/next/no-img-element */
+
+
+
+import getServerSession, { SignedIn, SignedOut } from "@/auth/session";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Database, File, Globe, Shield, UserIcon } from "lucide-react";
+import { ArrowUpRight, Database, File, Globe, LogOut, Shield, UserIcon } from "lucide-react";
 import Link from "next/link";
 
-export default function Home({}) {
-  
+export default async function Home({}) {
+  const session = await getServerSession()
+
   
   return (
     <div className="container min-h-screen flex flex-col gap-8 justify-center items-center">
+
+
+      <SignedIn>
+        <div className="flex items-center gap-2">
+          <img src={session?.user?.image || ""} alt="" className="size-10 rounded-full" />
+          <div>
+            <p className="font-medium">{session?.user?.name}</p>
+            <p className="text-xs text-muted-foreground">{session?.user?.email}</p>
+          </div>
+        </div>
+      </SignedIn>
+
+
       <Link href={"/"} className="text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
         NextSecure
       </Link>
@@ -33,11 +52,21 @@ export default function Home({}) {
             <Globe size={18} /> <span>Deploy Now</span>
           </Link>
         </Button>
-        <Button variant="outline" asChild>
-          <Link className="flex items-center gap-2" href={"/login"}>
-            <UserIcon size={18} /> <span>See Demo</span>
-          </Link>
-        </Button>
+        <SignedIn>
+          <Button variant="outline" className="cursor-pointer" asChild>
+            <div className="flex items-center gap-2">
+              <LogOut size={18} /> <span>Logout</span>
+            </div>
+          </Button>
+        </SignedIn>
+
+        <SignedOut>
+          <Button variant="outline" asChild>
+            <Link className="flex items-center gap-2" href={"/login"}>
+              <UserIcon size={18} /> <span>See Demo</span>
+            </Link>
+          </Button>
+        </SignedOut>
       </div>
 
       <div className="flex items-center gap-4 max-sm:flex-col">

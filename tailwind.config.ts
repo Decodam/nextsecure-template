@@ -6,7 +6,6 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/auth/ui/**/*.{js,ts,jsx,tsx,mdx}", // Add @auth/ui for auth components
   ],
   theme: {
   	extend: {

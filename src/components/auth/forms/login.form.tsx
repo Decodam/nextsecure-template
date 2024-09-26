@@ -4,15 +4,15 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { loginFormSchema } from "@/auth/validator"
 import Link from "next/link"
 import Image from "next/image"
-import { PasswordInput } from "../password-input"
-import { brand } from "../brands"
-import OauthButtons from "../oauth-buttons"
+import { PasswordInput } from "@/components/auth/password-input"
+import { brand } from "@/components/auth/brands"
+import OauthButtons from "@/components/auth/oauth-buttons"
 
 
 
@@ -69,9 +69,6 @@ export default function LoginForm({borderless=false, className}:{borderless?:boo
                     <FormControl>
                       <Input placeholder="u@example.com" {...field} />
                     </FormControl>
-                    <FormDescription>
-                      Provide your registered email address
-                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}

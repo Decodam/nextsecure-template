@@ -1,5 +1,5 @@
 
-export interface UserProfile {
+export interface UserProfileType {
   id: string;
   name: string | null;
   email: string | null;
@@ -12,3 +12,4 @@ export interface UserProfile {
     type: string;
   }>;
 }
+
